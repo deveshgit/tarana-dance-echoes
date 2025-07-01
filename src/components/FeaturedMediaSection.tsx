@@ -55,13 +55,13 @@ const FeaturedMediaSection = () => {
   );
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-8 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
             Featured <span className="dance-text-gradient">Media</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Glimpse into our vibrant community of dancers and the beautiful art of Kathak in action.
           </p>
         </div>
@@ -130,7 +130,7 @@ const FeaturedMediaSection = () => {
           <CarouselNext className="right-4" />
         </Carousel>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8">
           <Link
             to="/performances"
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-semibold text-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl"
