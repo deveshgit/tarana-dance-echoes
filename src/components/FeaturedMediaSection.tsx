@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Eye } from 'lucide-react';
+import { ArrowRight, Eye, X } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 const FeaturedMediaSection = () => {
   const featuredMedia = [
@@ -61,36 +62,57 @@ const FeaturedMediaSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredMedia.map((media, index) => (
-            <div 
-              key={media.id}
-              className="dance-slide-up group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={media.src}
-                  alt={media.alt}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="flex items-center space-x-2 text-white">
-                      <Eye className="w-4 h-4" />
-                      <span className="text-sm">View Details</span>
+            <Dialog key={media.id}>
+              <DialogTrigger asChild>
+                <div 
+                  className="dance-slide-up group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={media.src}
+                      alt={media.alt}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <div className="flex items-center space-x-2 text-white">
+                          <Eye className="w-4 h-4" />
+                          <span className="text-sm">View Full Image</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
+                      {media.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {media.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </DialogTrigger>
               
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
-                  {media.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {media.description}
-                </p>
-              </div>
-            </div>
+              <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0">
+                <div className="relative">
+                  <img
+                    src={media.src}
+                    alt={media.alt}
+                    className="w-full h-auto max-h-[80vh] object-contain"
+                  />
+                  <div className="p-6 bg-white">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                      {media.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {media.description}
+                    </p>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           ))}
         </div>
 
