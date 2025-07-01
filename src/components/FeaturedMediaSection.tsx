@@ -1,8 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Eye, X } from 'lucide-react';
+import { ArrowRight, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const FeaturedMediaSection = () => {
   const featuredMedia = [
@@ -48,6 +50,10 @@ const FeaturedMediaSection = () => {
     }
   ];
 
+  const autoplay = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,61 +66,69 @@ const FeaturedMediaSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredMedia.map((media, index) => (
-            <Dialog key={media.id}>
-              <DialogTrigger asChild>
-                <div 
-                  className="dance-slide-up group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={media.src}
-                      alt={media.alt}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <div className="flex items-center space-x-2 text-white">
-                          <Eye className="w-4 h-4" />
-                          <span className="text-sm">View Full Image</span>
+        <Carousel
+          plugins={[autoplay.current]}
+          className="w-full"
+          onMouseEnter={autoplay.current.stop}
+          onMouseLeave={autoplay.current.reset}
+        >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {featuredMedia.map((media, index) => (
+              <CarouselItem key={media.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="dance-slide-up group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
+                      <div className="relative overflow-hidden">
+                        <img
+                          src={media.src}
+                          alt={media.alt}
+                          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-4 left-4 right-4">
+                            <div className="flex items-center space-x-2 text-white">
+                              <Eye className="w-4 h-4" />
+                              <span className="text-sm">View Full Image</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
+                      
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
+                          {media.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {media.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </DialogTrigger>
                   
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
-                      {media.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {media.description}
-                    </p>
-                  </div>
-                </div>
-              </DialogTrigger>
-              
-              <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0">
-                <div className="relative">
-                  <img
-                    src={media.src}
-                    alt={media.alt}
-                    className="w-full h-auto max-h-[80vh] object-contain"
-                  />
-                  <div className="p-6 bg-white">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                      {media.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {media.description}
-                    </p>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-          ))}
-        </div>
+                  <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0">
+                    <div className="relative">
+                      <img
+                        src={media.src}
+                        alt={media.alt}
+                        className="w-full h-auto max-h-[80vh] object-contain"
+                      />
+                      <div className="p-6 bg-white">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                          {media.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {media.description}
+                        </p>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
+        </Carousel>
 
         <div className="text-center mt-12">
           <Link
