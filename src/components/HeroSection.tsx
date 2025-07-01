@@ -16,12 +16,6 @@ const HeroSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="dance-fade-in">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg mb-6">
-            <Star className="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" />
-            <span className="text-sm font-medium text-gray-700">Preserving Indian Classical Dance Culture</span>
-          </div>
-
           {/* Main heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             <span className="block text-gray-800">Welcome to</span>

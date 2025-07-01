@@ -8,11 +8,13 @@ import FeaturesSection from '../components/FeaturesSection';
 import AboutPreviewSection from '../components/AboutPreviewSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import CTASection from '../components/CTASection';
+import TitleSection from '../components/TitleSection';
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
+      <TitleSection />
       <FeaturedMediaSection />
       <HeroSection />
       <FeaturesSection />
