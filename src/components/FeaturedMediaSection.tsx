@@ -62,7 +62,7 @@ const FeaturedMediaSection = () => {
             Featured <span className="dance-text-gradient">Media</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Glimpse into our vibrant community of dancers and the beautiful art of Kathak in action.
+            Glimpse into our vibrant community of dancers and the beautiful art of Kathak Dance in action.
           </p>
         </div>
 
