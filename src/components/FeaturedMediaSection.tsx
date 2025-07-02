@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
+
 
 const FeaturedMediaSection = () => {
   const featuredMedia = [
@@ -50,10 +50,6 @@ const FeaturedMediaSection = () => {
     }
   ];
 
-  const autoplay = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  );
-
   return (
     <section className="py-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,16 +58,11 @@ const FeaturedMediaSection = () => {
             Featured <span className="dance-text-gradient">Media</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Glimpse into our vibrant community of dancers and the beautiful art of Kathak Dance in action.
+            Experience our vibrant Kathak dance community in action.
           </p>
         </div>
 
-        <Carousel
-          plugins={[autoplay.current]}
-          className="w-full"
-          onMouseEnter={autoplay.current.stop}
-          onMouseLeave={autoplay.current.reset}
-        >
+        <Carousel className="w-full">
           <CarouselContent className="-ml-2 md:-ml-4">
             {featuredMedia.map((media, index) => (
               <CarouselItem key={media.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
