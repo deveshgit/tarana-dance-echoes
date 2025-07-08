@@ -184,8 +184,41 @@ const About = () => {
             <div className="w-20 h-1 dance-gradient mx-auto rounded-full mb-12"></div>
             
             <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 dance-slide-up">
-              <div className="text-center text-gray-600">
-                <p>Content coming soon...</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="border-l-4 border-red-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Formal Education</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• <span className="font-semibold">Visharad in Kathak</span> from Bhatkhande Sangeet Vidyapith, Lucknow</li>
+                      <li>• <span className="font-semibold">Diploma in Rabindra Nritya</span></li>
+                    </ul>
+                  </div>
+                  
+                  <div className="border-l-4 border-blue-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Trained by Renowned Gurus</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• <span className="font-semibold">Guru Smt. Mitali Rudra</span></li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="border-l-4 border-amber-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Inspired by Legendary Masters</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• <span className="font-semibold">Guru Bipul Das</span></li>
+                      <li>• <span className="font-semibold">Padma Vibhushan Pt. Birju Maharaj ji</span></li>
+                    </ul>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Training Legacy</h3>
+                    <p className="text-gray-600">
+                      A rich foundation built on formal education from prestigious institutions 
+                      and direct training from accomplished masters of Kathak tradition.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
