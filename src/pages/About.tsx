@@ -135,20 +135,44 @@ const About = () => {
             </h2>
             <div className="w-20 h-1 dance-gradient mx-auto rounded-full mb-12"></div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {achievements.map((achievement, index) => (
-                <div 
-                  key={index}
-                  className="dance-slide-up bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="w-12 h-12 dance-gradient rounded-full flex items-center justify-center mx-auto mb-4 text-white">
-                    {achievement.icon}
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 dance-slide-up">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="border-l-4 border-yellow-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Awards & Recognition</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• <span className="font-semibold">SurTaal Award (2010)</span> - Assam</li>
+                      <li>• <span className="font-semibold">2nd Position</span> - State-Level Rabindra Nritya Competition, Assam (2008)</li>
+                    </ul>
                   </div>
-                  <h3 className="font-bold text-gray-800 mb-2">{achievement.title}</h3>
-                  <p className="text-gray-600 text-sm">{achievement.description}</p>
+                  
+                  <div className="border-l-4 border-purple-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Professional Recognition</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Invited as Judge & Mentor in various Kathak dance competitions</li>
+                      <li>• Guided students to achieve national-level awards in Kathak competitions</li>
+                    </ul>
+                  </div>
                 </div>
-              ))}
+                
+                <div className="space-y-6">
+                  <div className="border-l-4 border-red-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Prestigious Performances</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Featured performer at <span className="font-semibold">Pune Festival 2023</span></li>
+                      <li>• Featured performer at <span className="font-semibold">Bagrumba Festival</span>, Assam</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="border-l-4 border-blue-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Regular Performances</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Regular performer in cultural programs across Assam, Bengaluru, and Pune</li>
+                      <li>• Consistent participation in major cultural events and festivals</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
