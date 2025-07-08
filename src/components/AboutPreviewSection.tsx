@@ -44,20 +44,20 @@ const AboutPreviewSection = () => {
               
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div className="p-4 bg-red-50 rounded-lg">
-                  <div className="text-2xl font-bold text-red-600">20+</div>
+                  <div className="text-2xl font-bold text-red-600">19+</div>
                   <div className="text-sm text-gray-600">Years Experience</div>
                 </div>
                 <div className="p-4 bg-blue-50 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-600">500+</div>
+                  <div className="text-2xl font-bold text-blue-600">50+</div>
                   <div className="text-sm text-gray-600">Students Trained</div>
                 </div>
                 <div className="p-4 bg-amber-50 rounded-lg">
-                  <div className="text-2xl font-bold text-amber-600">100+</div>
+                  <div className="text-2xl font-bold text-amber-600">50+</div>
                   <div className="text-sm text-gray-600">Performances</div>
                 </div>
                 <div className="p-4 bg-green-50 rounded-lg">
-                  <div className="text-2xl font-bold text-green-600">15+</div>
-                  <div className="text-sm text-gray-600">Awards Won</div>
+                  <div className="text-2xl font-bold text-green-600">200+</div>
+                  <div className="text-sm text-gray-600">Participants</div>
                 </div>
               </div>
             </div>

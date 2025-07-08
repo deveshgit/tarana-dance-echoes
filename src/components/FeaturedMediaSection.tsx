@@ -11,7 +11,7 @@ const FeaturedMediaSection = () => {
     {
       id: 1,
       type: 'image',
-      src: './assets/picture1.jpg',
+      src: './assets/01.jpeg',
       alt: 'Kathak performance at cultural festival',
       title: 'Annual Cultural Festival 2024',
       description: 'Students performing classical Kathak at the city cultural festival'
@@ -19,7 +19,7 @@ const FeaturedMediaSection = () => {
     {
       id: 2,
       type: 'image',
-      src: './assets/picture1.jpg',
+      src: './assets/02.jpg',
       alt: 'Traditional Kathak costume and jewelry',
       title: 'Traditional Attire',
       description: 'Beautiful costumes and jewelry used in authentic Kathak performances'
@@ -27,7 +27,7 @@ const FeaturedMediaSection = () => {
     {
       id: 3,
       type: 'image',
-     src: './assets/picture1.jpg',
+     src: './assets/03.jpeg',
       alt: 'Group of students in dance pose',
       title: 'Student Showcase',
       description: 'Our talented students demonstrating perfect form and technique'
@@ -35,7 +35,7 @@ const FeaturedMediaSection = () => {
     {
       id: 4,
       type: 'image',
-      src: './assets/picture1.jpg',
+      src: './assets/04.jpeg',
       alt: 'Instructor teaching classical moves',
       title: 'Expert Instruction',
       description: 'Professional guidance in traditional Kathak techniques'
@@ -43,7 +43,7 @@ const FeaturedMediaSection = () => {
     {
       id: 5,
       type: 'image',
-      src: './assets/picture1.jpg',
+      src: './assets/05.jpeg',
       alt: 'Stage performance with dramatic lighting',
       title: 'Stage Performance',
       description: 'Mesmerizing stage performance showcasing the beauty of Kathak'
