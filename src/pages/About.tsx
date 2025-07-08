@@ -45,7 +45,7 @@ const About = () => {
           </div>
 
           {/* Story Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          <div id="our-story" className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="dance-slide-up">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
@@ -82,7 +82,7 @@ const About = () => {
           </div>
 
           {/* Professional Experience */}
-          <div className="mb-20">
+          <div id="professional-experience" className="mb-20">
             <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
               <span className="dance-text-gradient tracking-wider">PROFESSIONAL EXPERIENCE</span>
             </h2>
@@ -129,7 +129,7 @@ const About = () => {
           </div>
 
           {/* Achievements */}
-          <div className="mb-20">
+          <div id="achievements" className="mb-20">
             <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
               <span className="dance-text-gradient tracking-wider">ACHIEVEMENTS</span>
             </h2>
@@ -177,7 +177,7 @@ const About = () => {
           </div>
 
           {/* Education & Training */}
-          <div className="mb-20">
+          <div id="education-training" className="mb-20">
             <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
               <span className="dance-text-gradient tracking-wider">EDUCATION & TRAINING</span>
             </h2>
@@ -224,7 +224,7 @@ const About = () => {
           </div>
 
           {/* Dance Style & Expertise */}
-          <div className="mb-20">
+          <div id="dance-expertise" className="mb-20">
             <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
               <span className="dance-text-gradient tracking-wider">DANCE STYLE & EXPERTISE</span>
             </h2>
@@ -279,7 +279,7 @@ const About = () => {
           </div>
 
           {/* Mission Section */}
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 dance-slide-up">
+          <div id="our-mission" className="bg-white rounded-3xl shadow-xl p-8 md:p-12 dance-slide-up">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Mission</h2>
               <div className="w-20 h-1 dance-gradient mx-auto rounded-full"></div>
