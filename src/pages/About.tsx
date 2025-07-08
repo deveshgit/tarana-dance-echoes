@@ -81,9 +81,60 @@ const About = () => {
             </div>
           </div>
 
-          {/* Achievements Grid */}
+          {/* Professional Experience */}
           <div className="mb-20">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Achievements</h2>
+            <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
+              <span className="dance-text-gradient tracking-wider">PROFESSIONAL EXPERIENCE</span>
+            </h2>
+            <div className="w-20 h-1 dance-gradient mx-auto rounded-full mb-12"></div>
+            
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 dance-slide-up">
+              <div className="space-y-6">
+                <div className="border-l-4 border-red-500 pl-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Founder & Artistic Director</h3>
+                  <p className="text-red-600 font-semibold mb-2">Tarana Kathak Dance Academy (2019 - Present)</p>
+                  <p className="text-gray-600">Affiliated with Akhil Bharatiya Gandharva Mahavidyalaya</p>
+                </div>
+                
+                <div className="border-l-4 border-blue-500 pl-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Current Teaching Positions</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Dance Teacher at Fortune High School</li>
+                    <li>• Dance Teacher at Revachand Bhojwani High School, Pune (Past 5 Years)</li>
+                    <li>• Over 9 years of total teaching experience</li>
+                  </ul>
+                </div>
+                
+                <div className="border-l-4 border-amber-500 pl-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Professional Experience</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Served as External Faculty for classical dance exams and certification boards</li>
+                    <li>• Performing Kathak for 19 years in various events and dance troupes</li>
+                    <li>• Part of renowned dance troupes in Assam, Bangalore and Pune</li>
+                    <li>• Trained from the reputed Sur Taal school of Dance, Assam</li>
+                  </ul>
+                </div>
+                
+                <div className="border-l-4 border-green-500 pl-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Current Impact</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Training 50+ students regularly in Kathak and semi-classical forms</li>
+                    <li>• Structured batches and individualized mentoring</li>
+                    <li>• Organized multiple workshops with 200+ participants</li>
+                    <li>• Fostering cultural awareness and dance education</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Achievements */}
+          <div className="mb-20">
+            <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
+              <span className="dance-text-gradient tracking-wider">ACHIEVEMENTS</span>
+            </h2>
+            <div className="w-20 h-1 dance-gradient mx-auto rounded-full mb-12"></div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {achievements.map((achievement, index) => (
                 <div 
@@ -98,6 +149,34 @@ const About = () => {
                   <p className="text-gray-600 text-sm">{achievement.description}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Education & Training */}
+          <div className="mb-20">
+            <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
+              <span className="dance-text-gradient tracking-wider">EDUCATION & TRAINING</span>
+            </h2>
+            <div className="w-20 h-1 dance-gradient mx-auto rounded-full mb-12"></div>
+            
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 dance-slide-up">
+              <div className="text-center text-gray-600">
+                <p>Content coming soon...</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Dance Style & Expertise */}
+          <div className="mb-20">
+            <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
+              <span className="dance-text-gradient tracking-wider">DANCE STYLE & EXPERTISE</span>
+            </h2>
+            <div className="w-20 h-1 dance-gradient mx-auto rounded-full mb-12"></div>
+            
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 dance-slide-up">
+              <div className="text-center text-gray-600">
+                <p>Content coming soon...</p>
+              </div>
             </div>
           </div>
 
