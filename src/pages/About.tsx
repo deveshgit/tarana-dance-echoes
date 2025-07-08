@@ -231,8 +231,49 @@ const About = () => {
             <div className="w-20 h-1 dance-gradient mx-auto rounded-full mb-12"></div>
             
             <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 dance-slide-up">
-              <div className="text-center text-gray-600">
-                <p>Content coming soon...</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="border-l-4 border-red-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Dance Forms Mastery</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• <span className="font-semibold">Kathak</span> - Classical Indian dance</li>
+                      <li>• <span className="font-semibold">Rabindra Nritya</span> - Tagore's dance form</li>
+                      <li>• <span className="font-semibold">Semi-Classical</span> dance forms</li>
+                      <li>• <span className="font-semibold">Folk Dance</span> forms</li>
+                      <li>• <span className="font-semibold">Zumba & Aerobics</span> - Fitness dance</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="border-l-4 border-blue-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Professional Skills</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Skilled in choreographing complex routines for diverse age groups</li>
+                      <li>• Special performance choreography expertise</li>
+                      <li>• Dedicated and detail-oriented approach</li>
+                      <li>• Strong commitment to achieving perfection in every movement</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="border-l-4 border-amber-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Interpersonal Excellence</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Excellent communication and collaboration skills</li>
+                      <li>• Proven team player with positive attitude</li>
+                      <li>• Supportive approach in group settings</li>
+                      <li>• Strong rapport with fellow performers and students</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Additional Qualifications</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• <span className="font-semibold">Bachelor of Arts</span> from Guwahati University (2012)</li>
+                      <li>• <span className="font-semibold">Diploma in Software Testing</span> from Bangalore Q-Spider Academy</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
