@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -29,19 +30,57 @@ const Navigation = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const handleMouseEnter = () => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    setIsAboutDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsAboutDropdownOpen(false);
+    }, 200); // 200ms delay before closing
+    setHoverTimeout(timeout);
+  };
+
   const handleSubMenuClick = (anchor: string) => {
+    // Clear any pending timeout
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    
     if (location.pathname !== '/about') {
       navigate('/about');
+      // Wait longer for navigation to complete
       setTimeout(() => {
         const element = document.querySelector(anchor);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Add offset to account for fixed header
+          const headerOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
-      }, 100);
+      }, 300);
     } else {
       const element = document.querySelector(anchor);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Add offset to account for fixed header
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     }
     setIsAboutDropdownOpen(false);
@@ -69,8 +108,8 @@ const Navigation = () => {
                 {item.hasDropdown ? (
                   <div
                     className="relative"
-                    onMouseEnter={() => setIsAboutDropdownOpen(true)}
-                    onMouseLeave={() => setIsAboutDropdownOpen(false)}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
                     <Link
                       to={item.path}
