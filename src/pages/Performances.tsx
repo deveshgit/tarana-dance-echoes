@@ -151,13 +151,13 @@ const Performances = () => {
       {/* Events Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-24">
+          <div className="space-y-16">
             {events.map((event, eventIndex) => (
-              <div 
-                key={event.id}
-                className="dance-slide-up"
-                style={{ animationDelay: `${eventIndex * 0.2}s` }}
-              >
+              <div key={event.id}>
+                <div 
+                  className="dance-slide-up"
+                  style={{ animationDelay: `${eventIndex * 0.2}s` }}
+                >
                 {/* Event Header */}
                 <div className="text-center mb-12">
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -294,9 +294,11 @@ const Performances = () => {
                   </Carousel>
                 </div>
 
+                </div>
+
                 {/* Divider between events */}
                 {eventIndex < events.length - 1 && (
-                  <div className="mt-16 pt-8 border-t border-gray-200"></div>
+                  <div className="mt-12 border-t border-gray-200"></div>
                 )}
               </div>
             ))}
