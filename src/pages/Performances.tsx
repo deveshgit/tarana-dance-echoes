@@ -4,73 +4,128 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Eye, Play, Image as ImageIcon, Video } from 'lucide-react';
+import { Eye, Play, Image as ImageIcon, Video, Calendar, MapPin, Users } from 'lucide-react';
 
 const Performances = () => {
-  // Sample images - replace with your actual image URLs
-  const performanceImages = [
+  // Events with their own images and videos
+  const events = [
     {
       id: 1,
-      src: './assets/01.jpeg',
-      alt: 'Kathak performance at cultural festival',
       title: 'Annual Cultural Festival 2024',
-      description: 'Students performing classical Kathak at the city cultural festival'
+      date: 'November 15, 2024',
+      time: '6:00 PM - 9:00 PM',
+      location: 'City Convention Center, Main Hall',
+      participants: 45,
+      description: 'A grand celebration of Kathak dance featuring performances by students of all levels, showcasing traditional and contemporary interpretations.',
+      images: [
+        {
+          id: 1,
+          src: './assets/01.jpeg',
+          alt: 'Cultural festival opening ceremony',
+          title: 'Opening Ceremony',
+          description: 'Students performing the traditional invocation dance'
+        },
+        {
+          id: 2,
+          src: './assets/02.jpg',
+          alt: 'Traditional costumes display',
+          title: 'Traditional Attire',
+          description: 'Beautiful costumes and jewelry used in authentic performances'
+        },
+        {
+          id: 3,
+          src: './assets/03.jpeg',
+          alt: 'Group performance finale',
+          title: 'Grand Finale',
+          description: 'All participants coming together for the closing performance'
+        }
+      ],
+      videos: [
+        {
+          id: 1,
+          videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+          title: 'Cultural Festival Highlights',
+          description: 'Best moments from the annual cultural festival'
+        },
+        {
+          id: 2,
+          videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+          title: 'Student Solo Performances',
+          description: 'Individual performances by our talented students'
+        }
+      ]
     },
     {
       id: 2,
-      src: './assets/02.jpg',
-      alt: 'Traditional Kathak costume and jewelry',
-      title: 'Traditional Attire',
-      description: 'Beautiful costumes and jewelry used in authentic Kathak performances'
+      title: 'Diwali Celebration 2024',
+      date: 'October 28, 2024',
+      time: '5:30 PM - 8:00 PM',
+      location: 'Community Park Amphitheater',
+      participants: 32,
+      description: 'A magical evening celebrating the festival of lights with traditional Kathak performances and cultural storytelling.',
+      images: [
+        {
+          id: 4,
+          src: './assets/04.jpeg',
+          alt: 'Diwali dance performance',
+          title: 'Festival of Lights',
+          description: 'Mesmerizing performance celebrating Diwali traditions'
+        },
+        {
+          id: 5,
+          src: './assets/05.jpeg',
+          alt: 'Stage with traditional decorations',
+          title: 'Decorated Stage',
+          description: 'Beautiful stage setup with traditional Diwali decorations'
+        }
+      ],
+      videos: [
+        {
+          id: 3,
+          videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+          title: 'Diwali Dance Celebration',
+          description: 'Traditional Kathak performance for Diwali festival'
+        }
+      ]
     },
     {
       id: 3,
-      src: './assets/03.jpeg',
-      alt: 'Group of students in dance pose',
-      title: 'Student Showcase',
-      description: 'Our talented students demonstrating perfect form and technique'
-    },
-    {
-      id: 4,
-      src: './assets/04.jpeg',
-      alt: 'Instructor teaching classical moves',
-      title: 'Expert Instruction',
-      description: 'Professional guidance in traditional Kathak techniques'
-    },
-    {
-      id: 5,
-      src: './assets/05.jpeg',
-      alt: 'Stage performance with dramatic lighting',
-      title: 'Stage Performance',
-      description: 'Mesmerizing stage performance showcasing the beauty of Kathak'
-    }
-  ];
-
-  // Sample YouTube videos - replace with your actual YouTube video IDs
-  const performanceVideos = [
-    {
-      id: 1,
-      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
-      title: 'Kathak Performance - Diwali Festival',
-      description: 'A beautiful Kathak performance during our annual Diwali celebration'
-    },
-    {
-      id: 2,
-      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
       title: 'Student Recital 2024',
-      description: 'Our students showcasing their skills at the annual recital'
-    },
-    {
-      id: 3,
-      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
-      title: 'Classical Kathak Techniques',
-      description: 'Demonstration of traditional Kathak movements and expressions'
-    },
-    {
-      id: 4,
-      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
-      title: 'Group Performance',
-      description: 'Synchronized group performance showcasing unity in dance'
+      date: 'September 12, 2024',
+      time: '4:00 PM - 7:00 PM',
+      location: 'Tarana Dance Studio',
+      participants: 28,
+      description: 'An intimate showcase where our students demonstrate their progress and skills learned throughout the year.',
+      images: [
+        {
+          id: 6,
+          src: './assets/01.jpeg',
+          alt: 'Student recital performance',
+          title: 'Student Showcase',
+          description: 'Young dancers displaying their learned techniques'
+        },
+        {
+          id: 7,
+          src: './assets/02.jpg',
+          alt: 'Award ceremony',
+          title: 'Recognition Ceremony',
+          description: 'Celebrating student achievements and progress'
+        }
+      ],
+      videos: [
+        {
+          id: 4,
+          videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+          title: 'Student Recital Highlights',
+          description: 'Best performances from our annual student recital'
+        },
+        {
+          id: 5,
+          videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+          title: 'Beginner Level Performances',
+          description: 'Inspiring performances by our newest students'
+        }
+      ]
     }
   ];
 
@@ -93,129 +148,159 @@ const Performances = () => {
         </div>
       </section>
 
-      {/* Images Section */}
+      {/* Events Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <ImageIcon className="w-8 h-8 text-red-600" />
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-                Performance <span className="dance-text-gradient">Gallery</span>
-              </h2>
-            </div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Capture the beauty and elegance of our Kathak performances through these stunning photographs.
-            </p>
-          </div>
-
-          <Carousel className="w-full">
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {performanceImages.map((image) => (
-                <CarouselItem key={image.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <div className="dance-slide-up group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
-                        <div className="relative overflow-hidden">
-                          <img
-                            src={image.src}
-                            alt={image.alt}
-                            className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="absolute bottom-4 left-4 right-4">
-                              <div className="flex items-center space-x-2 text-white">
-                                <Eye className="w-4 h-4" />
-                                <span className="text-sm">View Full Image</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="p-6">
-                          <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
-                            {image.title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed text-sm">
-                            {image.description}
-                          </p>
-                        </div>
-                      </div>
-                    </DialogTrigger>
-                    
-                    <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0">
-                      <div className="relative">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-auto max-h-[80vh] object-contain"
-                        />
-                        <div className="p-6 bg-white">
-                          <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                            {image.title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed">
-                            {image.description}
-                          </p>
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-4" />
-            <CarouselNext className="right-4" />
-          </Carousel>
-        </div>
-      </section>
-
-      {/* Videos Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Video className="w-8 h-8 text-red-600" />
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-                Performance <span className="dance-text-gradient">Videos</span>
-              </h2>
-            </div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Watch our mesmerizing Kathak performances and see the artistry in motion.
-            </p>
-          </div>
-
-          <Carousel className="w-full">
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {performanceVideos.map((video) => (
-                <CarouselItem key={video.id} className="pl-2 md:pl-4 md:basis-1/1 lg:basis-1/2">
-                  <div className="dance-slide-up group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 h-full">
-                    <div className="relative">
-                      <div className="aspect-video">
-                        <iframe
-                          src={`https://www.youtube.com/embed/${video.videoId}`}
-                          title={video.title}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          className="w-full h-full rounded-t-2xl"
-                        ></iframe>
-                      </div>
+          <div className="space-y-24">
+            {events.map((event, eventIndex) => (
+              <div 
+                key={event.id}
+                className="dance-slide-up"
+                style={{ animationDelay: `${eventIndex * 0.2}s` }}
+              >
+                {/* Event Header */}
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    {event.title}
+                  </h2>
+                  <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+                    {event.description}
+                  </p>
+                  
+                  {/* Event Details */}
+                  <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-red-600" />
+                      <span className="font-medium">{event.date}</span>
+                      <span>•</span>
+                      <span>{event.time}</span>
                     </div>
-                    
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
-                        {video.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed text-sm">
-                        {video.description}
-                      </p>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-red-600" />
+                      <span>{event.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-red-600" />
+                      <span>{event.participants} participants</span>
                     </div>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-4" />
-            <CarouselNext className="right-4" />
-          </Carousel>
+                </div>
+
+                {/* Images Section */}
+                <div className="mb-16">
+                  <div className="flex items-center justify-center gap-3 mb-8">
+                    <ImageIcon className="w-6 h-6 text-red-600" />
+                    <h3 className="text-2xl font-bold text-gray-800">Event Gallery</h3>
+                  </div>
+
+                  <Carousel className="w-full">
+                    <CarouselContent className="-ml-2 md:-ml-4">
+                      {event.images.map((image) => (
+                        <CarouselItem key={image.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <div className="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
+                                <div className="relative overflow-hidden">
+                                  <img
+                                    src={image.src}
+                                    alt={image.alt}
+                                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="absolute bottom-4 left-4 right-4">
+                                      <div className="flex items-center space-x-2 text-white">
+                                        <Eye className="w-4 h-4" />
+                                        <span className="text-sm">View Full Image</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div className="p-6">
+                                  <h4 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
+                                    {image.title}
+                                  </h4>
+                                  <p className="text-gray-600 leading-relaxed text-sm">
+                                    {image.description}
+                                  </p>
+                                </div>
+                              </div>
+                            </DialogTrigger>
+                            
+                            <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0">
+                              <div className="relative">
+                                <img
+                                  src={image.src}
+                                  alt={image.alt}
+                                  className="w-full h-auto max-h-[80vh] object-contain"
+                                />
+                                <div className="p-6 bg-white">
+                                  <h4 className="text-2xl font-bold text-gray-800 mb-2">
+                                    {image.title}
+                                  </h4>
+                                  <p className="text-gray-600 leading-relaxed">
+                                    {image.description}
+                                  </p>
+                                </div>
+                              </div>
+                            </DialogContent>
+                          </Dialog>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-4" />
+                    <CarouselNext className="right-4" />
+                  </Carousel>
+                </div>
+
+                {/* Videos Section */}
+                <div className="p-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl">
+                  <div className="flex items-center justify-center gap-3 mb-8">
+                    <Video className="w-6 h-6 text-red-600" />
+                    <h3 className="text-2xl font-bold text-gray-800">Performance Videos</h3>
+                  </div>
+
+                  <Carousel className="w-full">
+                    <CarouselContent className="-ml-2 md:-ml-4">
+                      {event.videos.map((video) => (
+                        <CarouselItem key={video.id} className="pl-2 md:pl-4 md:basis-1/1 lg:basis-1/2">
+                          <div className="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 h-full">
+                            <div className="relative">
+                              <div className="aspect-video">
+                                <iframe
+                                  src={`https://www.youtube.com/embed/${video.videoId}`}
+                                  title={video.title}
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                  className="w-full h-full rounded-t-2xl"
+                                ></iframe>
+                              </div>
+                            </div>
+                            
+                            <div className="p-6">
+                              <h4 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
+                                {video.title}
+                              </h4>
+                              <p className="text-gray-600 leading-relaxed text-sm">
+                                {video.description}
+                              </p>
+                            </div>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-4" />
+                    <CarouselNext className="right-4" />
+                  </Carousel>
+                </div>
+
+                {/* Divider between events */}
+                {eventIndex < events.length - 1 && (
+                  <div className="mt-16 pt-8 border-t border-gray-200"></div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
