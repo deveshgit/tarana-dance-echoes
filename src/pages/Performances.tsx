@@ -2,62 +2,75 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Users, Video, Image as ImageIcon } from 'lucide-react';
+import { Eye, Play, Image as ImageIcon, Video } from 'lucide-react';
 
 const Performances = () => {
-  const performances = [
+  // Sample images - replace with your actual image URLs
+  const performanceImages = [
     {
       id: 1,
-      title: 'Diwali Cultural Festival 2024',
-      date: 'October 15, 2024',
-      location: 'Community Center, Downtown',
-      description: 'A mesmerizing Kathak performance celebrating the festival of lights with traditional music and dance.',
-      type: 'Festival',
-      audience: '500+',
-      images: [
-        'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop'
-      ],
-      videos: [
-        'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800&h=600&fit=crop'
-      ]
+      src: './assets/01.jpeg',
+      alt: 'Kathak performance at cultural festival',
+      title: 'Annual Cultural Festival 2024',
+      description: 'Students performing classical Kathak at the city cultural festival'
     },
     {
       id: 2,
-      title: 'Annual Recital 2024',
-      date: 'September 20, 2024',
-      location: 'Grand Theater, Arts District',
-      description: 'Our students showcased their year-long journey in Kathak with solo and group performances.',
-      type: 'Recital',
-      audience: '300+',
-      images: [
-        'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop'
-      ],
-      videos: [
-        'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800&h=600&fit=crop'
-      ]
+      src: './assets/02.jpg',
+      alt: 'Traditional Kathak costume and jewelry',
+      title: 'Traditional Attire',
+      description: 'Beautiful costumes and jewelry used in authentic Kathak performances'
     },
     {
       id: 3,
-      title: 'Heritage Day Celebration',
-      date: 'August 15, 2024',
-      location: 'City Park Amphitheater',
-      description: 'A patriotic performance celebrating Indian heritage through classical Kathak dance forms.',
-      type: 'Cultural Event',
-      audience: '800+',
-      images: [
-        'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop'
-      ],
-      videos: [
-        'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800&h=600&fit=crop'
-      ]
+      src: './assets/03.jpeg',
+      alt: 'Group of students in dance pose',
+      title: 'Student Showcase',
+      description: 'Our talented students demonstrating perfect form and technique'
+    },
+    {
+      id: 4,
+      src: './assets/04.jpeg',
+      alt: 'Instructor teaching classical moves',
+      title: 'Expert Instruction',
+      description: 'Professional guidance in traditional Kathak techniques'
+    },
+    {
+      id: 5,
+      src: './assets/05.jpeg',
+      alt: 'Stage performance with dramatic lighting',
+      title: 'Stage Performance',
+      description: 'Mesmerizing stage performance showcasing the beauty of Kathak'
+    }
+  ];
+
+  // Sample YouTube videos - replace with your actual YouTube video IDs
+  const performanceVideos = [
+    {
+      id: 1,
+      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+      title: 'Kathak Performance - Diwali Festival',
+      description: 'A beautiful Kathak performance during our annual Diwali celebration'
+    },
+    {
+      id: 2,
+      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+      title: 'Student Recital 2024',
+      description: 'Our students showcasing their skills at the annual recital'
+    },
+    {
+      id: 3,
+      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+      title: 'Classical Kathak Techniques',
+      description: 'Demonstration of traditional Kathak movements and expressions'
+    },
+    {
+      id: 4,
+      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
+      title: 'Group Performance',
+      description: 'Synchronized group performance showcasing unity in dance'
     }
   ];
 
@@ -70,7 +83,7 @@ const Performances = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="dance-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
-              Recent <span className="dance-text-gradient">Performances</span>
+              Our <span className="dance-text-gradient">Performances</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Experience the magic of our Kathak performances through captivating photos and videos. 
@@ -80,111 +93,129 @@ const Performances = () => {
         </div>
       </section>
 
-      {/* Performances Gallery */}
+      {/* Images Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
-            {performances.map((performance, index) => (
-              <div 
-                key={performance.id}
-                className="dance-slide-up"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <Card className="overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-                  <CardHeader className="bg-gradient-to-r from-amber-50 to-red-50">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                      <div>
-                        <CardTitle className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-                          {performance.title}
-                        </CardTitle>
-                        <CardDescription className="text-lg text-gray-600">
-                          {performance.description}
-                        </CardDescription>
-                      </div>
-                      <Badge 
-                        variant="secondary" 
-                        className="w-fit bg-gradient-to-r from-red-100 to-amber-100 text-red-700 border-red-200"
-                      >
-                        {performance.type}
-                      </Badge>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-4 mt-4 text-sm text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        <span>{performance.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{performance.location}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4" />
-                        <span>{performance.audience} audience</span>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="p-8">
-                    {/* Photos Section */}
-                    <div className="mb-8">
-                      <div className="flex items-center gap-2 mb-4">
-                        <ImageIcon className="w-5 h-5 text-red-600" />
-                        <h3 className="text-xl font-semibold text-gray-800">Photos</h3>
-                      </div>
-                      
-                      <Carousel className="w-full">
-                        <CarouselContent>
-                          {performance.images.map((image, imageIndex) => (
-                            <CarouselItem key={imageIndex} className="md:basis-1/2 lg:basis-1/3">
-                              <div className="p-1">
-                                <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                  <img
-                                    src={image}
-                                    alt={`${performance.title} - Photo ${imageIndex + 1}`}
-                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                                  />
-                                </div>
-                              </div>
-                            </CarouselItem>
-                          ))}
-                        </CarouselContent>
-                        <CarouselPrevious />
-                        <CarouselNext />
-                      </Carousel>
-                    </div>
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <ImageIcon className="w-8 h-8 text-red-600" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+                Performance <span className="dance-text-gradient">Gallery</span>
+              </h2>
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Capture the beauty and elegance of our Kathak performances through these stunning photographs.
+            </p>
+          </div>
 
-                    {/* Videos Section */}
-                    <div>
-                      <div className="flex items-center gap-2 mb-4">
-                        <Video className="w-5 h-5 text-red-600" />
-                        <h3 className="text-xl font-semibold text-gray-800">Performance Videos</h3>
-                      </div>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {performance.videos.map((video, videoIndex) => (
-                          <div key={videoIndex} className="aspect-video overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <div className="relative w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center group cursor-pointer">
-                              <img
-                                src={video}
-                                alt={`${performance.title} - Video ${videoIndex + 1}`}
-                                className="w-full h-full object-cover"
-                              />
-                              <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                  <Video className="w-8 h-8 text-white" />
-                                </div>
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {performanceImages.map((image) => (
+                <CarouselItem key={image.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <div className="dance-slide-up group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
+                        <div className="relative overflow-hidden">
+                          <img
+                            src={image.src}
+                            alt={image.alt}
+                            className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute bottom-4 left-4 right-4">
+                              <div className="flex items-center space-x-2 text-white">
+                                <Eye className="w-4 h-4" />
+                                <span className="text-sm">View Full Image</span>
                               </div>
                             </div>
                           </div>
-                        ))}
+                        </div>
+                        
+                        <div className="p-6">
+                          <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
+                            {image.title}
+                          </h3>
+                          <p className="text-gray-600 leading-relaxed text-sm">
+                            {image.description}
+                          </p>
+                        </div>
+                      </div>
+                    </DialogTrigger>
+                    
+                    <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0">
+                      <div className="relative">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-auto max-h-[80vh] object-contain"
+                        />
+                        <div className="p-6 bg-white">
+                          <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                            {image.title}
+                          </h3>
+                          <p className="text-gray-600 leading-relaxed">
+                            {image.description}
+                          </p>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4" />
+            <CarouselNext className="right-4" />
+          </Carousel>
+        </div>
+      </section>
+
+      {/* Videos Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Video className="w-8 h-8 text-red-600" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+                Performance <span className="dance-text-gradient">Videos</span>
+              </h2>
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Watch our mesmerizing Kathak performances and see the artistry in motion.
+            </p>
+          </div>
+
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {performanceVideos.map((video) => (
+                <CarouselItem key={video.id} className="pl-2 md:pl-4 md:basis-1/1 lg:basis-1/2">
+                  <div className="dance-slide-up group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 h-full">
+                    <div className="relative">
+                      <div className="aspect-video">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${video.videoId}`}
+                          title={video.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-full rounded-t-2xl"
+                        ></iframe>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
+                    
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
+                        {video.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed text-sm">
+                        {video.description}
+                      </p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4" />
+            <CarouselNext className="right-4" />
+          </Carousel>
         </div>
       </section>
 
