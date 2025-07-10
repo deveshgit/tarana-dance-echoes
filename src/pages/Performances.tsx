@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
@@ -327,12 +328,12 @@ const Performances = () => {
               Join our academy and showcase your talent at cultural events and festivals. 
               Experience the joy of performing Kathak on stage.
             </p>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center px-8 py-4 bg-white text-red-600 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Join Our Academy
-            </a>
+            </Link>
           </div>
         </div>
       </section>
