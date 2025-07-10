@@ -296,9 +296,19 @@ const Performances = () => {
 
                 </div>
 
-                {/* Divider between events */}
+                {/* Decorative Divider between events */}
                 {eventIndex < events.length - 1 && (
-                  <div className="mt-12 border-t border-gray-200"></div>
+                  <div className="mt-16 mb-4">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-red-300 to-transparent"></div>
+                      <div className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-red-50 to-amber-50 rounded-full border border-red-200">
+                        <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+                        <span className="text-red-600 font-medium text-sm">❖</span>
+                        <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+                      </div>
+                      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-red-300 to-transparent"></div>
+                    </div>
+                  </div>
                 )}
               </div>
             ))}
