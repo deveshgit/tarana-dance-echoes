@@ -1,54 +1,52 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
+import { Mail, Phone, MapPin, CheckCircle, Facebook, Instagram, Twitter, Youtube, Linkedin } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    ageGroup: '',
-    experience: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for your interest. We'll get back to you soon.",
-      });
-      
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        ageGroup: '',
-        experience: ''
-      });
-      setIsSubmitting(false);
-    }, 1000);
-  };
+  const socialMedia = [
+    {
+      icon: <Facebook className="w-8 h-8" />,
+      name: "Facebook",
+      handle: "@TaranaDanceAcademy",
+      url: "https://facebook.com/taranadanceacademy",
+      color: "from-blue-600 to-blue-700",
+      hoverColor: "hover:from-blue-700 hover:to-blue-800"
+    },
+    {
+      icon: <Instagram className="w-8 h-8" />,
+      name: "Instagram",
+      handle: "@tarana_dance",
+      url: "https://instagram.com/tarana_dance",
+      color: "from-pink-600 to-purple-600",
+      hoverColor: "hover:from-pink-700 hover:to-purple-700"
+    },
+    {
+      icon: <Twitter className="w-8 h-8" />,
+      name: "X (Twitter)",
+      handle: "@TaranaDance",
+      url: "https://twitter.com/taranadance",
+      color: "from-slate-800 to-black",
+      hoverColor: "hover:from-slate-900 hover:to-slate-800"
+    },
+    {
+      icon: <Youtube className="w-8 h-8" />,
+      name: "YouTube",
+      handle: "Tarana Dance Academy",
+      url: "https://youtube.com/@taranadanceacademy",
+      color: "from-red-600 to-red-700",
+      hoverColor: "hover:from-red-700 hover:to-red-800"
+    },
+    {
+      icon: <Linkedin className="w-8 h-8" />,
+      name: "LinkedIn",
+      handle: "Tarana Dance Academy",
+      url: "https://linkedin.com/company/taranadanceacademy",
+      color: "from-blue-700 to-blue-800",
+      hoverColor: "hover:from-blue-800 hover:to-blue-900"
+    }
+  ];
 
   const contactInfo = [
     {
@@ -138,154 +136,39 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Social Media Section */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl p-8 dance-slide-up" style={{ animationDelay: '0.1s' }}>
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+                <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Connect With Us</h2>
+                <p className="text-gray-600 text-center mb-8">
+                  Follow us on social media to stay updated with our latest performances, classes, and cultural events.
+                </p>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Full Name *
-                      </label>
-                      <Input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full"
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
-                      </label>
-                      <Input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
-                      </label>
-                      <Input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full"
-                        placeholder="Enter your phone number"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="ageGroup" className="block text-sm font-medium text-gray-700 mb-2">
-                        Age Group
-                      </label>
-                      <select
-                        id="ageGroup"
-                        name="ageGroup"
-                        value={formData.ageGroup}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      >
-                        <option value="">Select age group</option>
-                        <option value="5-10">5-10 years</option>
-                        <option value="11-15">11-15 years</option>
-                        <option value="16-25">16-25 years</option>
-                        <option value="26-35">26-35 years</option>
-                        <option value="35+">35+ years</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">
-                      Dance Experience
-                    </label>
-                    <select
-                      id="experience"
-                      name="experience"
-                      value={formData.experience}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6">
+                  {socialMedia.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group flex items-center p-6 bg-gradient-to-r ${social.color} ${social.hoverColor} rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105`}
                     >
-                      <option value="">Select your experience level</option>
-                      <option value="beginner">Complete Beginner</option>
-                      <option value="some">Some Experience</option>
-                      <option value="intermediate">Intermediate</option>
-                      <option value="advanced">Advanced</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={4}
-                      className="w-full"
-                      placeholder="Tell us about your interest in Kathak dance, any questions you have, or what you hope to achieve..."
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        Sending...
+                      <div className="text-white mr-4 group-hover:scale-110 transition-transform duration-300">
+                        {social.icon}
                       </div>
-                    ) : (
-                      <div className="flex items-center justify-center">
-                        <Send className="w-5 h-5 mr-2" />
-                        Send Message
+                      <div className="text-white">
+                        <h3 className="font-bold text-lg">{social.name}</h3>
+                        <p className="text-sm opacity-90">{social.handle}</p>
                       </div>
-                    )}
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl shadow-xl p-8 md:p-12 text-white dance-slide-up">
-              <h2 className="text-3xl font-bold mb-4">Ready to Begin Your Kathak Journey?</h2>
-              <p className="text-xl opacity-90 mb-6 max-w-2xl mx-auto">
-                Join our community of passionate dancers and discover the beauty of Indian classical dance culture.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
-                  Schedule a Trial Class
-                </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-3 text-lg font-semibold">
-                  Learn More About Classes
-                </Button>
+                    </a>
+                  ))}
+                </div>
+                
+                <div className="mt-8 text-center">
+                  <p className="text-gray-600 text-sm">
+                    Join our growing community of Kathak enthusiasts and stay connected with our cultural journey.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
