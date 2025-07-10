@@ -92,13 +92,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 dance-gradient rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
-            </div>
-            <span className="font-bold text-xl dance-text-gradient">
-              Tarana Dance Academy
-            </span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/lovable-uploads/87c3696a-6a82-4f44-ab5d-ce26b2e7776f.png" 
+              alt="Tarana Kathak Dance Academy" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
