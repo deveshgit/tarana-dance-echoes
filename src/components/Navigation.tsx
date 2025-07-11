@@ -94,7 +94,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/87c3696a-6a82-4f44-ab5d-ce26b2e7776f.png" 
+              src="/assets/logo.png" 
               alt="Tarana Kathak Dance Academy" 
               className="h-12 w-auto"
             />
